@@ -2,6 +2,41 @@
 
 O objetivo deste projeto é avaliar o desenvolvimento de uma aplicação java utilizando Spring e APIs.
 
+
+### Como usar
+
+#### Maven
+
+Não precisa instalar o maven na sua máquina . O Comando abaixo vai baixar a versão do mavem para o projeto e executa-lo
+ ```shell script
+./mvnw spring-boot:run
+```
+
+#### Docker
+Primeiramente é preciso ter o Docker e Docker compose instalado:
+
+Para instalar o docker e docker compose siga os passos da documentação oficial: 
+
+docker: https://docs.docker.com/engine/install/
+
+docker compose: https://docs.docker.com/compose/install/
+
+para executar a aplicação basta entrar no diretorio onde está a aplicação e executar o seguinte comando:
+
+```shell
+docker-composer up
+```
+
+Agora a aplicação está rodando em: http://localhost:9000/beerhouse/
+
+#### Acessando banco de dados
+h2 console (acesso ao banco): http://localhost:9000/beerhouse/h2-console
+ - Driver Class: org.h2.Driver
+ - JDBC URL: jdbc:h2:mem:craftbeerdb
+ - username: sa
+ - password: 
+
+
 ### Baseado no [Building an Application with Spring Boot](https://spring.io/guides/gs/spring-boot/).
 
 

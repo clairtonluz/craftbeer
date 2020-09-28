@@ -1,0 +1,16 @@
+.dockerignore
+Dockerfile
+docker-compose*
+.git
+.gitignore
+docs
+*.md
+target/
+mvnw.cmd
+
+### IntelliJ IDEA ###
+.idea
+*.iws
+*.iml
+*.ipr
+/out/

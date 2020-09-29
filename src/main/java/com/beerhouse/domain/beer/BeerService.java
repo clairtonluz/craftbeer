@@ -8,6 +8,7 @@ import java.util.Locale;
 
 @Service
 public class BeerService {
+    private static final String BEER_NOT_FOUND = "Beer %d not found";
     private final BeerRepository beerRepository;
 
     public BeerService(BeerRepository beerRepository) {
@@ -20,7 +21,7 @@ public class BeerService {
 
     public Beer findById(Long id) {
         return beerRepository.findById(id).orElseThrow(() -> new NotFoundException(
-                String.format(Locale.getDefault(), "Beer %d not found", id)
+                String.format(Locale.getDefault(), BEER_NOT_FOUND, id)
         ));
     }
 
@@ -31,7 +32,7 @@ public class BeerService {
     public Beer update(Long id, Beer beer) {
         if (!beerRepository.existsById(id)) {
             throw new NotFoundException(
-                    String.format(Locale.getDefault(), "Beer %d not found", id)
+                    String.format(Locale.getDefault(), BEER_NOT_FOUND, id)
             );
         }
 
@@ -44,7 +45,7 @@ public class BeerService {
 
         Beer actual = beerRepository.findById(id)
                 .orElseThrow(() -> new NotFoundException(
-                        String.format(Locale.getDefault(), "Beer %d not found", id)
+                        String.format(Locale.getDefault(), BEER_NOT_FOUND, id)
                 ));
 
         if (beer.getName() != null) actual.setName(beer.getName());
@@ -59,7 +60,7 @@ public class BeerService {
     public void deleteById(Long id) {
         if (!beerRepository.existsById(id)) {
             throw new NotFoundException(
-                    String.format(Locale.getDefault(), "Beer %d not found", id)
+                    String.format(Locale.getDefault(), BEER_NOT_FOUND, id)
             );
         }
         beerRepository.deleteById(id);

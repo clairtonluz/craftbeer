@@ -3,16 +3,16 @@ package com.beerhouse.domain.beer;
 import java.util.List;
 import java.util.Optional;
 
-public interface BeerRepositoy {
+public interface BeerRepository {
     List<Beer> findAll();
 
     Optional<Beer> findById(Long id);
+
+    boolean existsById(Long id);
 
     Beer create(Beer beer);
 
     Beer update(Beer beer);
 
-    Beer partialUpdate(Long id, Beer beer);
-
-    void delete(Long id);
+    void deleteById(Long id);
 }

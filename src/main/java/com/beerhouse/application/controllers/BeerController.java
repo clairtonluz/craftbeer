@@ -50,7 +50,7 @@ public class BeerController {
 
     @DeleteMapping("{id}")
     public ResponseEntity<Void> delete(@PathVariable Long id) {
-        beerService.delete(id);
+        beerService.deleteById(id);
         return ResponseEntity.noContent().build();
     }
 

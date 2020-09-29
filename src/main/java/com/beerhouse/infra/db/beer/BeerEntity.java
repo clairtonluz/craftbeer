@@ -1,13 +1,17 @@
 package com.beerhouse.infra.db.beer;
 
 import com.beerhouse.domain.beer.Beer;
-import lombok.Data;
+import lombok.*;
 
 import javax.persistence.*;
 
+@EqualsAndHashCode(callSuper = true)
 @Data
 @Entity
 @Table(name="beers")
+@Builder
+@AllArgsConstructor
+@NoArgsConstructor
 class BeerEntity extends Beer {
 
     @Id

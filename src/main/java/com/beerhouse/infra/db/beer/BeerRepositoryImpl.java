@@ -1,17 +1,15 @@
 package com.beerhouse.infra.db.beer;
 
 import com.beerhouse.domain.beer.Beer;
-import com.beerhouse.domain.beer.BeerRepositoy;
-import com.beerhouse.domain.core.exceptions.NotFoundException;
+import com.beerhouse.domain.beer.BeerRepository;
 import org.springframework.stereotype.Repository;
 
 import java.util.List;
-import java.util.Locale;
 import java.util.Optional;
 import java.util.stream.Collectors;
 
 @Repository
-public class BeerRepositoryImpl implements BeerRepositoy {
+public class BeerRepositoryImpl implements BeerRepository {
 
     private final BeerJpaRepository beerJpaRepository;
 
@@ -33,6 +31,11 @@ public class BeerRepositoryImpl implements BeerRepositoy {
     }
 
     @Override
+    public boolean existsById(Long id) {
+        return beerJpaRepository.existsById(id);
+    }
+
+    @Override
     public Beer create(Beer beer) {
         BeerEntity entity = BeerEntity.from(beer);
         return beerJpaRepository.save(entity);
@@ -44,23 +47,7 @@ public class BeerRepositoryImpl implements BeerRepositoy {
     }
 
     @Override
-    public Beer partialUpdate(Long id, Beer beer) {
-        BeerEntity entity = beerJpaRepository.findById(id)
-                .orElseThrow(() -> new NotFoundException(
-                        String.format(Locale.getDefault(), "Beer %d not found", id)
-                ));
-
-        if (beer.getName() != null) entity.setName(beer.getName());
-        if (beer.getIngredients() != null) entity.setIngredients(beer.getIngredients());
-        if (beer.getAlcoholContent() != null) entity.setAlcoholContent(beer.getAlcoholContent());
-        if (beer.getPrice() != null) entity.setPrice(beer.getPrice());
-        if (beer.getCategory() != null) entity.setCategory(beer.getCategory());
-
-        return beerJpaRepository.save(entity);
-    }
-
-    @Override
-    public void delete(Long id) {
+    public void deleteById(Long id) {
         beerJpaRepository.deleteById(id);
     }
 }

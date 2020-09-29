@@ -7,6 +7,8 @@ import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.junit.jupiter.MockitoExtension;
 
+import java.util.Collections;
+import java.util.List;
 import java.util.Optional;
 
 import static org.junit.jupiter.api.Assertions.*;
@@ -24,18 +26,111 @@ class BeerServiceTest {
 
     @Test
     void findAll() {
+        Beer beer = new Beer();
+        beer.setId(123L);
+        beer.setName("Name");
+        beer.setAlcoholContent("4.5%");
+        beer.setCategory("Category 1");
+        beer.setIngredients("ingredients");
+        beer.setPrice(5.44);
+
+        when(beerRepository.findAll()).thenReturn(Collections.singletonList(beer));
+
+        List<Beer> beerList = beerService.findAll();
+
+        assertEquals(1, beerList.size());
+        assertEquals(beer.getId(), beerList.get(0).getId());
+        verify(beerRepository).findAll();
     }
 
     @Test
     void findById() {
+        long id = 123L;
+        Beer beer = new Beer();
+        beer.setId(id);
+        beer.setName("Name");
+        beer.setAlcoholContent("4.5%");
+        beer.setCategory("Category 1");
+        beer.setIngredients("ingredients");
+        beer.setPrice(5.44);
+
+        when(beerRepository.findById(id)).thenReturn(Optional.of(beer));
+
+        Beer beerOutput = beerService.findById(id);
+
+        assertEquals(beer.getId(), beerOutput.getId());
+        verify(beerRepository).findById(id);
+    }
+
+
+    @Test
+    void findByIdShouldThrowANotFoundExceptionWhenBeerNotExists() {
+        long id = 123L;
+        when(beerRepository.findById(id)).thenReturn(Optional.empty());
+
+        Exception e = assertThrows(NotFoundException.class, () -> beerService.findById(id));
+        assertEquals("Beer " + id + " not found", e.getMessage());
+        verify(beerRepository).findById(id);
     }
 
     @Test
     void create() {
+        Beer beer = new Beer();
+        beer.setName("Name");
+        beer.setAlcoholContent("4.5%");
+        beer.setCategory("Category 1");
+        beer.setIngredients("ingredients");
+        beer.setPrice(5.44);
+
+        Beer beerWithId = new Beer();
+        beerWithId.setId(123L);
+        beerWithId.setName(beer.getName());
+        beerWithId.setAlcoholContent(beer.getAlcoholContent());
+        beerWithId.setCategory(beer.getCategory());
+        beerWithId.setIngredients(beer.getIngredients());
+        beerWithId.setPrice(beer.getPrice());
+
+
+        when(beerRepository.create(any(Beer.class))).thenReturn(beerWithId);
+
+        Beer beerOutput = beerService.create(beer);
+
+        assertNotNull(beerOutput);
+        assertEquals(beerWithId.getId(), beerOutput.getId());
+        verify(beerRepository).create(any(Beer.class));
     }
 
     @Test
     void update() {
+        long id = 123L;
+        Beer beer = new Beer();
+        beer.setName("Name");
+        beer.setAlcoholContent("4.5%");
+        beer.setCategory("Category 1");
+        beer.setIngredients("ingredients");
+        beer.setPrice(5.44);
+
+        when(beerRepository.existsById(id)).thenReturn(true);
+        when(beerRepository.update(any(Beer.class))).thenReturn(beer);
+
+        Beer beerOutput = beerService.update(id, beer);
+
+        assertNotNull(beerOutput);
+        assertEquals(id, beerOutput.getId());
+        verify(beerRepository).update(any(Beer.class));
+    }
+
+    @Test
+    void updateShouldThrowErrorWhenBeerNotExists() {
+        long id = 123L;
+        Beer beer = new Beer();
+
+        when(beerRepository.existsById(id)).thenReturn(false);
+
+        Exception e = assertThrows(NotFoundException.class, () -> beerService.update(id, beer));
+        assertEquals("Beer " + id + " not found", e.getMessage());
+
+        verify(beerRepository).existsById(id);
     }
 
     @Test

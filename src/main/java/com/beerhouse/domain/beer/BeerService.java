@@ -29,6 +29,12 @@ public class BeerService {
     }
 
     public Beer update(Long id, Beer beer) {
+        if (!beerRepository.existsById(id)) {
+            throw new NotFoundException(
+                    String.format(Locale.getDefault(), "Beer %d not found", id)
+            );
+        }
+
         beer.setId(id);
         return beerRepository.update(beer);
     }

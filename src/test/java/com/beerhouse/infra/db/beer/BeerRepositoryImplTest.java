@@ -129,7 +129,7 @@ class BeerRepositoryImplTest {
     void shouldReturnFalseWhenBeerNotExists() {
         Long id = 123L;
         when(beerJpaRepository.existsById(id)).thenReturn(false);
-        assertTrue(beerRepository.existsById(id));
+        assertFalse(beerRepository.existsById(id));
         verify(beerJpaRepository).existsById(id);
     }
 }

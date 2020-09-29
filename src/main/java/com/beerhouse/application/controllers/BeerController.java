@@ -58,8 +58,8 @@ public class BeerController {
         return URI.create(
                 String.format(
                         Locale.getDefault(),
-                        "%s/beers/%d",
-                        req.getRequestURI(),
+                        "%s/%d",
+                        req.getRequestURL().toString(),
                         beer.getId()
                 )
         );

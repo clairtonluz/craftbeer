@@ -1,6 +1,5 @@
 package com.beerhouse.application.config.handlers.error;
 
-import com.beerhouse.domain.core.exceptions.BadRequestException;
 import com.beerhouse.domain.core.exceptions.NotFoundException;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.converter.HttpMessageNotReadableException;
@@ -29,13 +28,6 @@ public class GlobalExceptionHandler {
     @ExceptionHandler(HttpMessageNotReadableException.class)
     @ResponseBody
     public ResponseErrorVO handleHttpMessageNotReadableException(HttpServletRequest req, Exception e) {
-        return new ResponseErrorVO(e.getLocalizedMessage(), req.getRequestURI());
-    }
-
-    @ResponseStatus(HttpStatus.BAD_REQUEST)
-    @ExceptionHandler(BadRequestException.class)
-    @ResponseBody
-    public ResponseErrorVO handleBadRequestException(HttpServletRequest req, Exception e) {
         return new ResponseErrorVO(e.getLocalizedMessage(), req.getRequestURI());
     }
 

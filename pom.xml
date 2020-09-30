@@ -24,7 +24,7 @@
 		<sonar.projectKey>clairtonluz_craftbeer</sonar.projectKey>
 		<sonar.organization>clairtonluz</sonar.organization>
 		<sonar.host.url>https://sonarcloud.io</sonar.host.url>
-		<sonar.exclusions>**/*Entity.java, **/Application.java, **/application/config/**/*</sonar.exclusions>
+		<sonar.exclusions>**/Application.java</sonar.exclusions>
 	</properties>
 
 	<dependencies>

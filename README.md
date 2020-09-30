@@ -2,6 +2,12 @@
 
 O objetivo deste projeto é avaliar o desenvolvimento de uma aplicação java utilizando Spring e APIs.
 
+### Postman public link
+
+Abra o `Postman`, clique em `Import`, vá na aba `Link`, cole o link abaixo e siga os passos 
+indicados para importar a coleção.
+ 
+https://www.getpostman.com/collections/91073dba4ab19dc6bae7
 
 ### Como usar
 

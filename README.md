@@ -1,5 +1,4 @@
 ![Build](https://github.com/clairtonluz/craftbeer/workflows/Build/badge.svg)
-
 [![Quality Gate Status](https://sonarcloud.io/api/project_badges/measure?project=clairtonluz_craftbeer&metric=alert_status)](https://sonarcloud.io/dashboard?id=clairtonluz_craftbeer)
 
 [![Maintainability Rating](https://sonarcloud.io/api/project_badges/measure?project=clairtonluz_craftbeer&metric=sqale_rating)](https://sonarcloud.io/dashboard?id=clairtonluz_craftbeer)

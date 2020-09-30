@@ -1,3 +1,5 @@
+![Build](https://github.com/clairtonluz/craftbeer/workflows/Build/badge.svg)
+
 # Cadastro de cervejas artesanais
 
 O objetivo deste projeto é avaliar o desenvolvimento de uma aplicação java utilizando Spring e APIs.

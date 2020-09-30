@@ -54,7 +54,7 @@ public class BeerController {
         return ResponseEntity.noContent().build();
     }
 
-    public URI getLocation(HttpServletRequest req, Beer beer) {
+    private URI getLocation(HttpServletRequest req, Beer beer) {
         return URI.create(
                 String.format(
                         Locale.getDefault(),

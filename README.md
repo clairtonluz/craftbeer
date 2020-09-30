@@ -1,5 +1,18 @@
 ![Build](https://github.com/clairtonluz/craftbeer/workflows/Build/badge.svg)
 
+[![Quality Gate Status](https://sonarcloud.io/api/project_badges/measure?project=clairtonluz_craftbeer&metric=alert_status)](https://sonarcloud.io/dashboard?id=clairtonluz_craftbeer)
+
+[![Maintainability Rating](https://sonarcloud.io/api/project_badges/measure?project=clairtonluz_craftbeer&metric=sqale_rating)](https://sonarcloud.io/dashboard?id=clairtonluz_craftbeer)
+[![Reliability Rating](https://sonarcloud.io/api/project_badges/measure?project=clairtonluz_craftbeer&metric=reliability_rating)](https://sonarcloud.io/dashboard?id=clairtonluz_craftbeer)
+[![Security Rating](https://sonarcloud.io/api/project_badges/measure?project=clairtonluz_craftbeer&metric=security_rating)](https://sonarcloud.io/dashboard?id=clairtonluz_craftbeer)
+
+[![Coverage](https://sonarcloud.io/api/project_badges/measure?project=clairtonluz_craftbeer&metric=coverage)](https://sonarcloud.io/dashboard?id=clairtonluz_craftbeer)
+[![Duplicated Lines (%)](https://sonarcloud.io/api/project_badges/measure?project=clairtonluz_craftbeer&metric=duplicated_lines_density)](https://sonarcloud.io/dashboard?id=clairtonluz_craftbeer)
+[![Bugs](https://sonarcloud.io/api/project_badges/measure?project=clairtonluz_craftbeer&metric=bugs)](https://sonarcloud.io/dashboard?id=clairtonluz_craftbeer)
+[![Code Smells](https://sonarcloud.io/api/project_badges/measure?project=clairtonluz_craftbeer&metric=code_smells)](https://sonarcloud.io/dashboard?id=clairtonluz_craftbeer)
+[![Technical Debt](https://sonarcloud.io/api/project_badges/measure?project=clairtonluz_craftbeer&metric=sqale_index)](https://sonarcloud.io/dashboard?id=clairtonluz_craftbeer)
+[![Vulnerabilities](https://sonarcloud.io/api/project_badges/measure?project=clairtonluz_craftbeer&metric=vulnerabilities)](https://sonarcloud.io/dashboard?id=clairtonluz_craftbeer)
+
 # Cadastro de cervejas artesanais
 
 O objetivo deste projeto é avaliar o desenvolvimento de uma aplicação java utilizando Spring e APIs.
